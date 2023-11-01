@@ -1,0 +1,15 @@
+openai==0.27.1
+requests==2.28.2
+termcolor==2.2.0
+ipykernel
+textract
+llama-index==0.6.24
+langchain==0.0.239
+python-dotenv==1.0.0
+httpx
+fastapi~=0.98.0
+uvicorn~=0.22.0
+pinecone-client==2.2.2
+transformers
+fastapi-sessions
+pydantic~=1.10.12
