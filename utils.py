@@ -13,17 +13,24 @@ def is_answer_formatted_in_json(answer):
     try:
         json.loads(answer, strict=False)
         return True
-    except ValueError as e:
+    except ValueError:
         return False
 
 
-def format_quotes_in_json(str):
-    return str.replace('"', '\\"').replace("\n", "\\n")
+def format_escape_characters(s):
+    return s.replace('"', '\\"').replace("\n", "\\n")
 
 
-def transform_to_json(result):
-    formatted_result_string = format_quotes_in_json(result["result"])
+def transform_source_docs(result):
+    formatted_result_string = format_escape_characters(result["result"])
+    if 'source_documents' in result.keys():
+        return f"""
+            {{
+            "result": "{formatted_result_string}",
+            "sources": {json.dumps([i.metadata for i in result['source_documents']])}
+            }}"""
     return f"""
         {{
-        "result": "{formatted_result_string}"
+        "result": "{formatted_result_string}",
+        "sources": []
         }}"""
