@@ -1,11 +1,29 @@
 # AI Custom Chatbot Quickstart · Data Pipeline
 
+## Table of Contents
+1. [AI Custom Chatbot Quickstart · Data Pipeline](#ai-custom-chatbot-quickstart--data-pipeline)
+2. [Goals](#goals)
+3. [Architecture Overview](#architecture-overview)
+4. [Prerequisites](#prerequisites)
+5. [Set up your environment](#set-up-your-environment)
+6. [Add Data Cleansing](#add-data-cleansing)
+7. [Add Notion Integration](#add-notion-integration)
+8. [Add Links to the AI response](#add-links-to-the-ai-response)
+9. [FAQ](#faq)
+
 This tutorial shows you how to level-up your data pipeline when building a custom AI chatbot.
 
 We recommend setting up a basic custom chatbot first. This tutorial will build on top
 of [the quicks start you can reference here]([https://github.com/focused-labs/ai-custom-chatbot-quickstart](https://github.com/focused-labs/ai-custom-chatbot-quickstart)).
 
 For more resources: check out [our page on AI](https://focusedlabs.io/ai).
+
+### We are using our preferred tech stack. 
+- [OpenAI](https://openai.com/)
+- [Langchain](https://python.langchain.com/docs/get_started/introduction)
+- [Llama Hub Data Loaders](https://llamahub.ai/)
+- [Pinecone Vector Database](https://pinecone.io/)
+- Python [(FastAPI web framework)](https://fastapi.tiangolo.com/)
 
 ## Goals
 - Increase accuracy
@@ -22,11 +40,12 @@ For more resources: check out [our page on AI](https://focusedlabs.io/ai).
 ![Overview](ArchitectureOverview.png)
 
 ## Prerequisites
-
-1. A Pinecone Vector Database. You can create a free account [at Pinecone's website](https://www.pinecone.io/).
-2. An Open AI API account. You can sign up [at Open AI's website](https://platform.openai.com/signup).
-3. Python (and your favorite IDE). We are using python v3.10.7.
-4. Your favorite API client tool (our favorite is Postman, or you can use CLI curl)
+1. We recommend setting up a basic custom chatbot first. This tutorial will build on top
+of [the quicks start you can reference here]([https://github.com/focused-labs/ai-custom-chatbot-quickstart](https://github.com/focused-labs/ai-custom-chatbot-quickstart)).
+2. A Pinecone Vector Database. You can create a free account [at Pinecone's website](https://www.pinecone.io/).
+3. An Open AI API account. You can sign up [at Open AI's website](https://platform.openai.com/signup).
+4. Python (and your favorite IDE). We are using python v3.10.7.
+5. Your favorite API client tool (our favorite is Postman, or you can use CLI curl)
 
 ## Set up your environment
 
@@ -122,7 +141,7 @@ NOTION_API_KEY = "secret notion api key here"
 You will also need to make sure the pages you would like to upload have the correct API permissions. [Reference the
 Notion documentation about authorization](https://developers.notion.com/docs/authorization).
 
-## Add Links to the AI’s response
+## Add Links to the AI response
 
 1. Ensure that all of your data integrations include the file’s URL in the `metadata` field, as this will be referenced
    when corresponding vector is queried and selected.
